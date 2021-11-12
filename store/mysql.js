@@ -17,16 +17,17 @@ function handleCon(){
     connection = mysql.createConnection(dbconf);
     connection.connect((err) => {
         if(err){
-            console.log('[db err]', err);
+            console.error('[db err]', err);
             setTimeout(handleCon, 2000);
         }else{
             console.info('DB Connect');
+            console.info(config.mysql.host);
         };
         
     });
 
     connection.on('error', err => {
-        console.error('[db]err',err);
+        console.error('[db err]',err);
         if (err.code === 'PROTOCOL_CONNECTION_LOST'){
             handleCon();
         }else{
@@ -42,7 +43,6 @@ function list(table){
         connection.query(`SELECT * FROM ${table} `, (err, data) => {
             if(err) return reject(err);
             resolve(data);
-            
         })
     })
 }
@@ -107,4 +107,4 @@ module.exports = {
     get,
     upsert,
     query,
-}
+};

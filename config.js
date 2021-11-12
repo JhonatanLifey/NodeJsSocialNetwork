@@ -1,4 +1,5 @@
 module.exports = {
+    remoteDB: process.env.REMOTE_DB || false,
     api: {
         port: process.env.API_PORT || 3000, 
     },
@@ -6,11 +7,11 @@ module.exports = {
         secret: process.env.JWT_SECRET || 'NOTASECRET',
     },
     mysql:{
-        host: process.env.MYSQL_HOST || '127.0.0.1',
+        host: process.env.MYSQL_HOST || 'sql3.freemysqlhosting.net',
         port: process.env.MYSQL_PORT || '3306', // este puerto viene del my.ini yo lo coloque x q tuve q cambiar el puerto, ya q uno de los servicios no levantaba
-        user: process.env.MYSQL_USER || 'root',
-        password: process.env.MYSQL_PASSWORD || '',
-        database: process.env.MYSQL_DATABASE || 'dbsocialnetwork',
+        user: process.env.MYSQL_USER || 'sql3450490',
+        password: process.env.MYSQL_PASSWORD || 'ZA3IC7tjhb',
+        database: process.env.MYSQL_DATABASE || 'sql3450490',
     },
     post:{
         port: process.env.POST_PORT || '3002',
